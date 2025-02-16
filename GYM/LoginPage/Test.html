@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page|EQUINOX</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">Login to Equinox Gym</div>
+        <form id="contactForm">
+            <div class="inputBox">
+                <label for="name" class="lab">Full Name:</label>
+                <input type="text" id="name" placeholder="Your name...." required />
+            </div>
+
+            <div class="inputBox">
+                <label for="emailid" class="lab">Email:</label>
+                <input type="email" id="emailid" placeholder="Your Email....." required />
+            </div>
+
+            <div class="inputBox">
+                <label for="password" class="lab">Password:</label>
+                <input type="password" id="password" name="password" placeholder="Password" required />
+            </div>
+
+            <div class="inputBox">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+<!-- Modal Structure -->
+<div id="thankYouModal" class="modal">
+    <div class="modal-content">
+        <p>Thank you for joining EQUINOX!<p>  
+        <p> /n</p> <a href="D:/Project/GYM/payment.htm" button id="closeModal">Close</button>
+    </div>
+</div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+    <script src="./mail.js"></script>
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form from submitting normally
+            
+            // Show the modal
+            document.getElementById("thankYouModal").style.display = "flex";
+        });
+
+        document.getElementById("closeModal").addEventListener("click", function() {
+            document.getElementById("thankYouModal").style.display = "none";
+        });
+    </script>
+
+    <style>
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        #closeModal {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #closeModal:hover {
+            background: #0056b3;
+        }
+    </style>
+</body>
+
+</html>
